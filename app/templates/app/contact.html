@@ -1,0 +1,20 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<address>
+    Туристичесикое агенство "Отдых круглый год"<br />
+    Псков, ул. Пушкина 2<br />
+    <abbr title="Телефон">Наш номер телефона:</abbr>
+    +7 (8112) 72-22-77
+</address>
+
+<address>
+    <strong>Техническая поддержка:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Отдел маркетинга:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+{% endblock %}

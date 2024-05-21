@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <metaUTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Анкета</title>
+        <style>
+            body {
+                background-color: #e3f2fd;
+                font-size: 16px;
+                color: #022b3a;
+                padding-left: 20px;
+            }
+
+            h1 {
+                color: #022b3a;
+            }
+
+            li span {
+                color: #003554;
+            }
+        </style>
+</head>
+<body>
+    <h1>Ваша анкета была успешно отправлена!</h1>
+
+    <h2>Данные, которые Вы внесли:</h2>
+    <ul>
+        <li><span>Ваше имя:</span> {{ form.cleaned_data.name }}</li>
+        <li><span>Email:</span> {{ form.cleaned_data.email }}</li>
+        <li><span>Оценка дизайна:</span> {{ form.cleaned_data.rating_design }}</li>
+        <li>
+            <span>Удобство пользования сайтом, Вы оценили:</span>
+            {% if form.cleaned_data.usability == 'easy' %}
+            Легко
+            {% elif form.cleaned_data.usability == 'medium' %}
+            Средне
+            {% else %}
+            Сложно
+            {% endif %}
+        </li>
+        <li><span>По Вашему мнению нам следует улучшить:</span> {{ form.cleaned_data.improvements }}</li>
+        <li>
+            <span>О нашем сайте Вы узнали от:</span>
+            {% if form.cleaned_data.source == 'search_engine' %}
+            Поисковых систем
+            {% elif form.cleaned_data.source == 'social_media' %}
+            Социальных сетей
+            elif form.cleaned_data.source == 'friend' %}
+            По рекомендации друга
+            {% else %}
+            Где то в другом месте (хм, что бы это могло быть...)
+            {% endif %}
+        </li>
+        <li><span>Дополнительный комментарий от вас:</span> {{ form.cleaned_data.comments }}</li>
+    </ul>
+</body>
+</html>

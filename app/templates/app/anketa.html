@@ -1,0 +1,74 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% if form %}
+<br>
+<h2>Оставьте свой отзыв</h2>
+<br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br><br>
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+        {{ form.email }}<br><br>
+        <label for="{{ form.rating_design.id_for_label }}">{{ form.rating_design.label }}:</label><br>
+        {{ form.rating_design }}<br><br>
+        <label for="{{ form.usability.id_for_label }}">{{ form.usability.label }}:</label><br>
+        {{ form.usability }}<br><br>
+        <label for="{{ form.improvements.id_for_label }}">{{ form.improvements.label }}:</label><br>
+        {{ form.improvements }}<br><br>
+        <label for="{{ form.source.id_for_label }}">{{ form.source.label }}:</label><br>
+        {{ form.source }}<br><br>
+        <label for="{{ form.comments.id_for_label }}">{{ form.comments.label }}:</label><br>
+        {{ form.comments }}<br><br>
+        <input type="submit" value="Отправить" id="submit-button">
+    </form>
+</div>
+{% else %}
+<br>
+<h2>Спасибо за ваш отзыв!</h2>
+<h3>Ваш отзыв:</h3>
+<ul>
+    <li><span>Имя:</span> {{ form.cleaned_data.name }}</li>
+    <li><span>Email:</span> {{ form.cleaned_data.email }}</li>
+    <li><span>Оценка дизайна:</span> {{ form.cleaned_data.rating_design }}</li>
+    <li><span>Оценка удобства использования:</span> {{ form.cleaned_data.usability }}</li>
+    <li><span>Что можно улучшить:</span> {{ form.cleaned_data.improvements }}</li>
+    <li><span>Источник:</span> {{ form.cleaned_data.source }}</li>
+    <li><span>Дополнительные комментарии:</span> {{ form.cleaned_data.comments }}</li>
+</ul>
+{% endif %}
+{% endblock %}
+
+
+{% block scripts %}
+{{ block.super }}
+<script>
+    // JavaScript код для изменения цвета надписи на кнопке отправки формы при наведении на нее курсора мыши
+    document.getElementById("submit-button").addEventListener("mouseover", function() {
+        this.style.backgroundColor = "#caf0f8"; /* Изменение цвета фона кнопки при наведении */
+        this.style.color = "#022b3a"; /* Изменение цвета текста кнопки при наведении */
+    });
+
+    // JavaScript код для восстановления исходного цвета кнопки отправки формы при выходе курсора мыши из области кнопки
+    document.getElementById("submit-button").addEventListener("mouseout", function() {
+        this.style.backgroundColor = "#3498db"; /* Восстановление исходного цвета фона кнопки */
+        this.style.color = "#fff"; /* Восстановление исходного цвета текста кнопки */
+    });
+
+    // JavaScript код для изменения цвета фона поля ввода при его выборе для ввода
+    var inputFields = document.querySelectorAll('input[type="text"], input[type="email"]');
+    inputFields.forEach(function(input) {
+        input.addEventListener('focus', function() {
+            this.style.backgroundColor = "#ade8f4"; /* Изменение цвета фона поля ввода при выборе для ввода */
+        });
+    });
+
+    // JavaScript код для восстановления исходного цвета фона поля ввода при выходе из него
+    inputFields.forEach(function(input) {
+        input.addEventListener('blur', function() {
+            this.style.backgroundColor = "#fff"; /* Восстановление исходного цвета фона поля ввода */
+        });
+    });
+</script>
+{% endblock %}

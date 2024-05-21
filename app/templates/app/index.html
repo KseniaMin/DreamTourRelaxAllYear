@@ -1,0 +1,88 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Тур.агенство "Отдых круглый год"</h1>
+    <p class="lead">Лучший тур.оператор в России</p>
+</div>
+
+{% load static %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="{% static 'app/content/1.jpg'%} " alt="Первый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Тайланд
+
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/2.jpg'%}" alt="Второй слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Черногория
+
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src=" {% static 'app/content/3.jpg'%} " alt="Третий слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Турция
+
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/4.jpg'%} " alt="Четвертый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Мальдивы
+
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/5.jpg'%} " alt="Пятый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Швейцария
+
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/6.jpg'%} " alt="Пятый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option" style="color: black; font-size: 40px; width: 80%; margin-left: 10%;">
+                <p>
+                    Китай
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+{% endblock %}

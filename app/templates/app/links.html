@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Полезные ресурсы</title>
+    {% load static %}
+    <style>
+        body {
+            background-color: #e3f2fd;
+            margin-right: 20px;
+        }
+
+        h1 {
+            color: #022b3a;
+        }
+
+        a {
+            color: #002855;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Полезные ресурсы</h1>
+    <ul>
+        {% for resource in resources %}
+        <li>
+            <a href="{{ resource.url }}" target="_blank">
+                <img src="{% static resource.img_src %}" alt="{{ resource.alt_text }}" width="35" height="35" />
+                {{ resource.alt_text }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
